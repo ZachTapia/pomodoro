@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600;800&display=swap);
+
+$primary-focus-color: #F76C6C;
+$secondary-focus-color: #630D0D;
+
+html {
+    //This defines what 1 rem is, accomodates user
+    font-size: 62.5%;
+}
+
+body {
+    /* Changes the box-model so that the borders and paddings are no
+    longer added to total width / height we specify for a box */
+    box-sizing: border-box;
+    font-family: 'Baloo Bhaina 2', cursive;
+    background-color: $primary-focus-color;
+    color: #F2F2F2;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
