@@ -1,0 +1,21 @@
+.ToggleButton {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 4rem;
+    width: 4rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.ToggleButtonLine {
+    width: 4rem;
+    height: 0.4rem;
+    background: white;
+}

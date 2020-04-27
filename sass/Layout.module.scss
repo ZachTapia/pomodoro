@@ -1,12 +1,12 @@
 .MainLayout {
-    background-color: #000;
+
 }
 
+// If on desktop, use these rules
 @media only screen and (min-width: 900px) {
     .MainLayout {
         width: 75%;
         margin: 2.5% 10%;
         // height: 75vh;
-        background-color: #000;
     }
 }
