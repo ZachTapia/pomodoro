@@ -1,0 +1,27 @@
+// For Mobile
+.MainLayout {
+
+    .Content {
+        height: 80vh;
+        width: 90vw;
+        margin: 2vh 5vw;
+        background: red;
+
+    }
+}
+
+// For Desktop
+@media only screen and (min-width: 900px) {
+    .MainLayout {
+        width: 75%;
+        margin: 1% 10%;
+        // height: 75vh;
+
+        .Content {
+            height: 75vh;
+            width: 55vw;
+            margin: 0 12.5%;
+            background: red;
+        }
+    }
+}

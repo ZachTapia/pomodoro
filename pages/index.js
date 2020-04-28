@@ -9,7 +9,7 @@ const Index = () => {
         <Head>
           <title>Pomodoro Timer</title>
         </Head>
-        <h1>test</h1>
+        <div> -CONTENT -</div>
       </div>
     </Layout>
 
