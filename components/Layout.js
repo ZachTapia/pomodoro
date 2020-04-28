@@ -21,7 +21,8 @@ const Layout = (props) => {
         <div className={style.MainLayout}>
             <TopDrawer show={drawerOpen} backdropClickHandler={backdropClickHandler} />
             <Navbar drawerToggleHandler={drawerToggleHandler} />
-            {props.children}
+            <div className={style.Content}>{props.children}</div>
+
         </div>
     );
 };

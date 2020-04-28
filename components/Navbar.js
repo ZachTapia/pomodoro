@@ -9,15 +9,18 @@ const Navbar = (props) => {
     return (
         <header>
             <nav className={style.Navbar}>
-                <DrawerToggleButton drawerToggleHandler={drawerToggleHandler} />
-                <Link href="/"><img src="/clock.png" alt="logo" /></Link>
+                <div className={style.DrawerButton}>
+                    <DrawerToggleButton drawerToggleHandler={drawerToggleHandler} />
+                </div>
+
+                <Link href="/"><img className={style.Logo} src="/clock.png" alt="logo" /></Link>
                 <div className={style.LogoTitle}>Pomodoro Timer</div>
-                <ul className={style.NavItems}>
-                    <li><Link href="/"><a>Focus</a></Link></li>
-                    <li><Link href="/"><a>Stats</a></Link></li>
-                    <li><Link href="/"><a>Settings</a></Link></li>
-                    <li><Link href="/"><a>Login</a></Link></li>
-                </ul>
+
+                <Link href="/"><a className={style.NavLinks}>Focus</a></Link>
+                <Link href="/"><a className={style.NavLinks}>Stats</a></Link>
+                <Link href="/"><a className={style.NavLinks}>Settings</a></Link>
+                <Link href="/"><a className={style.NavLinks}>Login</a></Link>
+
             </nav>
         </header >
     );
