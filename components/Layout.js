@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import TopDrawer from './TopDrawer';
 
 import style from '../sass/Layout.module.scss';
+import Footer from './Footer';
 
 const Layout = (props) => {
 
@@ -22,7 +23,7 @@ const Layout = (props) => {
             <TopDrawer show={drawerOpen} backdropClickHandler={backdropClickHandler} />
             <Navbar drawerToggleHandler={drawerToggleHandler} />
             <div className={style.Content}>{props.children}</div>
-
+            <Footer />
         </div>
     );
 };
