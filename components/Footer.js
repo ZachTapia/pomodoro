@@ -1,12 +1,22 @@
-import style from '../sass/Footer.module.scss';
-
 const Footer = () => {
     return (
-        <div className={style.Footer}>
-            <div className={style.Socials}>
-                <img src="/linkedin.svg" alt="linkedin_link" />
-                <img src="/github.svg" alt="linkedin_link" />
+        <div className="footer">
+            <div className="socials">
+                <img className="socials__logo" src="/linkedin.svg" alt="linkedin_link" />
+                <img className="socials__logo" src="/github.svg" alt="linkedin_link" />
             </div>
+
+            <style jsx>{`
+                .footer {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .socials .socials__logo{
+                    width: 3.5rem;
+                    margin: 0 1rem;
+                }
+            `}</style>
         </div>
     );
 };
