@@ -5,12 +5,10 @@ import Layout from '../components/Layout';
 const Index = () => {
   return (
     <Layout>
-      <div>
-        <Head>
-          <title>Pomodoro Timer</title>
-        </Head>
-        <div> -CONTENT -</div>
-      </div>
+      <Head>
+        <title>Pomodoro Timer</title>
+      </Head>
+      <div> -CONTENT -</div>
     </Layout>
 
   );
