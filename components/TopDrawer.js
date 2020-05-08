@@ -12,8 +12,8 @@ const TopDrawer = (props) => {
             <nav className={drawerClasses}>
                 <ul className="TopDrawerItems">
                     <li><Link href="/"><a>Focus</a></Link></li>
-                    <li><Link href="/"><a>Stats</a></Link></li>
-                    <li><Link href="/"><a>Settings</a></Link></li>
+                    <li><Link href="/stats"><a>Stats</a></Link></li>
+                    <li><Link href="/settings"><a>Settings</a></Link></li>
                     <li><Link href="/"><a>Login</a></Link></li>
                 </ul>
             </nav>
@@ -58,9 +58,6 @@ const TopDrawer = (props) => {
                     background: rgba(0,0,0,0.3);
                     z-index: 40;
                 }
-
-
-
             `}</style>
 
         </div>

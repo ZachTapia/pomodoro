@@ -1,83 +1,60 @@
-import Link from 'next/link';
-
+import { useEffect } from 'react';
 import DrawerToggleButton from './DrawerToggleButton';
+import Link from 'next/link';
+import NavbarLink from './NavbarLink';
 
 const Navbar = (props) => {
     let { drawerToggleHandler } = props;
 
     return (
         <header>
-            <nav className="Navbar">
-                <div className="DrawerButton">
+            <nav className="navbar">
+                <div className="drawer-button">
                     <DrawerToggleButton drawerToggleHandler={drawerToggleHandler} />
                 </div>
 
-                <Link href="/"><img className="Logo" src="/clock.png" alt="logo" /></Link>
-                <div className="LogoTitle">Pomodoro Timer</div>
+                <Link href="/"><img className="logo" src="/clock.png" alt="logo" /></Link>
+                <div className="logo-title">Pomodoro Timer</div>
 
-                <Link href="/"><a className="NavLinks">Focus</a></Link>
-                <Link href="/"><a className="NavLinks">Stats</a></Link>
-                <Link href="/"><a className="NavLinks">Settings</a></Link>
-                <Link href="/"><a className="NavLinks">Login</a></Link>
+                <NavbarLink href="/" title="Focus" />
+                <NavbarLink href="/stats" title="Stats" />
+                <NavbarLink href="/settings" title="Settings" />
+                <NavbarLink href="" title="Login" />
             </nav>
 
             <style jsx>{`
-                .Navbar {
+                /* For Mobile */
+                .navbar {
                     display: flex;
                     background-color: #630D0D;
                     align-items: center;
                     text-align: center;
                 }
 
-                .Navbar .Logo {
-                        height: 6rem;
+                .navbar .logo {
+                    height: 6rem;
                 }
 
-                .Navbar .LogoTitle {
-                        font-size: 2.5rem;
-                        padding: 1rem 0 0.5rem 0;
-                }
-
-                .Navbar .NavLinks {
-                        display: none;
+                .navbar .logo-title {
+                    font-size: 2.5rem;
+                    padding: 1rem 0 0.5rem 0;
                 }
 
                 /* For Desktop */
                 @media only screen and (min-width: 900px) {
-                    .Navbar {
+                    .navbar {
                         background-color: transparent;
                         justify-content: space-evenly;
                         list-style-type: none;
                     }
 
-
-                    .Navbar .DrawerButton,
-                    .Navbar .LogoTitle {
-                            display: none;
+                    .navbar .drawer-button,
+                    .navbar .logo-title {
+                        display: none;
                     }
 
-                    .Navbar .Logo {
+                    .navbar .logo {
                         height: 10rem;
-                    }
-
-                    .Navbar .NavLinks {
-                        display: inline-block;
-                        font-size: 5rem;
-                        text-decoration: none;
-                        border: 0.1rem solid transparent;
-                        padding: 0 3rem;
-                    }
-
-                    .Navbar .NavLinks :hover,
-                    .Navbar .NavLinks :active,
-                    .Navbar .NavLinks :focus {
-                            border: 0.1rem solid #630D0D;
-                            border-radius: 4rem;
-                            background-color: #630D0D;
-                    }
-
-                    .Navbar .NavLinks :visited {
-                        color: #F2F2F2;
                     }
                 }
             `}</style>
