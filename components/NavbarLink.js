@@ -29,14 +29,14 @@ const NavbarLink = (props) => {
 
                     .navbar__link {
                         display: inline-block;
-                        font-size: 5rem;
+                        font-size: 2.5vw;
                         text-decoration: none;
                         padding: 0 3rem;
-                        color: white;
+                        color: #F4F4F4;
                     }
 
                     .navbar__link.navbar__link--active {
-                    color: black;
+                    color: #e92f00;
                     }
                 }
             `}</style>
