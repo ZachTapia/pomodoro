@@ -45,7 +45,7 @@ const Layout = (props) => {
                 @media only screen and (min-width: 900px) {
                     .main-layout {
                         width: 75%;
-                        margin: 1% 10%;
+                        margin: 1.5% auto;
                         background-color: rgb(46, 46, 46);
                         border-radius: 3rem;
                         box-shadow: -1rem 1rem 10rem #000;
