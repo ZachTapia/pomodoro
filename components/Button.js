@@ -1,57 +1,55 @@
-const Button = ({ buttonText, buttonColor, action }) => {
-    let buttonClasses = "button";
-
-    switch (buttonColor) {
-        case "green": {
-            buttonClasses += " button--green";
-            break;
-        };
-        case "yellow": {
-            buttonClasses += " button--yellow";
-            break;
-        };
-    }
+const Button = ({ buttonText, action }) => {
 
     return (
-        <div>
-            <button className={buttonClasses} onClick={action}>{buttonText}</button>
+        <React.Fragment>
+            <button className="button" onClick={action}>{buttonText}</button>
 
             <style jsx>{`
                 .button {
+                    position: relative;
+                    font-family: Ubuntu Mono;
                     background-color: transparent;
+                    border: none;
                     color: #f2f2f2;
-                    border-radius: 0.75rem;
                     font-size: 3rem;
-                    padding: 1rem;
-                    letter-spacing: 0.2rem;
+                    letter-spacing: 0.1rem;
                     cursor: pointer;
-                    margin: 0 1rem;
+                    margin: 2rem;
+                    padding: 0.2rem;
                 }
 
-                .button:focus {
-                    outline-color: #f2f2f2;
+                .button:hover, .button:active {
+                    transform: scale(1.1);
+                    transition: all ease-in 300ms;
                 }
 
-                .button:active {
-                    transform: translateY(0.3rem);
+                .button::before, .button::after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    background-color: #f2f2f2;
+                    width: 100%;
+                    height: 0px;
                 }
 
-                .button:hover {
-                    background-color: #00000020;
+                .button::before {
+                    top: 0;
+                    left: 0;
                 }
 
-                .button--green {
-                    color: green;
-                    border: 0.2rem solid green;
+                .button::after {
+                    bottom: 0;
+                    left: 0;
                 }
 
-                .button--yellow {
-                    color: yellow;
-                    border: 0.2rem solid yellow;
+                .button:hover::before, .button:hover::after,
+                .button:active::before, .button:active::after {
+                    height: 3px;
+                    transition: all ease-in 200ms;
                 }
 
             `}</style>
-        </div>
+        </React.Fragment>
     );
 };
 

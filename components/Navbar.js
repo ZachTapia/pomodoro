@@ -53,8 +53,8 @@ const Navbar = (props) => {
                     .navbar {
                         background-color: transparent;
                         justify-content: space-evenly;
-                        padding-top: 1rem;
-                        margin: 0;
+                        padding-top: 2rem;
+                        margin: 0.5rem 0;
                     }
 
                     .navbar .drawer-button,

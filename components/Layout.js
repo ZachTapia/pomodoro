@@ -36,7 +36,7 @@ const Layout = (props) => {
                     height: 88vh;
                     width: 90vw;
                     margin: 0 5vw;
-                    background-color: rgb(46, 46, 46);
+                    background-color: #2e2e2e;
                     border-radius: 1rem;
                     box-shadow: -1rem 1rem 10rem #000;
                 }
@@ -46,7 +46,7 @@ const Layout = (props) => {
                     .main-layout {
                         width: 75%;
                         margin: 1.5% auto;
-                        background-color: rgb(46, 46, 46);
+                        background-color: #2e2e2e;
                         border-radius: 3rem;
                         box-shadow: -1rem 1rem 10rem #000;
                     }
