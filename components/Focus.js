@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Timer from 'react-compound-timer';
 import FocusControlButton from './FocusControlButton';
 import Button from './Button';
+import FocusDetails from './FocusDetails';
 
 const Focus = () => {
 
@@ -40,8 +41,7 @@ const Focus = () => {
                 key={timerLength}
                 initialTime={timerLength}
                 direction="backward"
-                // If single digit value, then prepend 0
-                formatValue={(num) => num.toString().length == 2 ? num : '0' + num}
+                formatValue={(num) => num.toString().length == 2 ? num : '0' + num} // If single digit value, then prepend 0
                 startImmediately={false}>
 
                 {({ start, pause, reset }) => (
@@ -59,6 +59,8 @@ const Focus = () => {
                     </React.Fragment>
                 )}
             </Timer>
+
+            <FocusDetails />
 
             <style jsx>{`
                 .focus {
