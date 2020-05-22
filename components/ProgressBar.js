@@ -1,11 +1,16 @@
-const ProgressBar = () => {
+const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
+
+    const sectionWidth = (100 / totalSections) + '%';
+
+    // Create arrays to map over for each type of section, must check uncompletedSections > 0
+    let completedSectionsArray = Array(completedSections).fill("completed");
+    let uncompletedSectionsArray = totalSections - completedSections > 0 ? Array(totalSections - completedSections).fill("uncompleted") : [];
+
     return (
         <React.Fragment>
             <div className="progress-bar">
-                <div className="progress-bar__section progress-bar__section--completed"></div>
-                <div className="progress-bar__section progress-bar__section--completed"></div>
-                <div className="progress-bar__section progress-bar__section--completed"></div>
-                <div className="progress-bar__section"></div>
+                {completedSectionsArray.map((section, index) => <div className="progress-bar__section progress-bar__section--completed" key={index}></div>)}
+                {uncompletedSectionsArray.map((section, index) => <div className="progress-bar__section" key={index}></div>)}
             </div>
 
             <style jsx>{`
@@ -19,27 +24,28 @@ const ProgressBar = () => {
 
                 .progress-bar__section {
                     height: 100%;
-                    width: 25%;
+                    width: ${sectionWidth};
                     border: 0.3rem solid #f2f2f2;
                 }
 
+                .progress-bar__section:not(:first-child):not(:last-child) {
+                    border-left: none;
+                }
+
                 .progress-bar__section:first-child {
-                    border-bottom-left-radius: 30%;
-                    border-top-left-radius: 30%;
+                    border-bottom-left-radius: 3rem;
+                    border-top-left-radius: 3rem;
                 }
 
                 .progress-bar__section:last-child {
-                    border-bottom-right-radius: 30%;
-                    border-top-right-radius: 30%;
-
+                    border-bottom-right-radius: 3rem;
+                    border-top-right-radius: 3rem;
+                    border-left: none;
                 }
 
                 .progress-bar__section--completed {
-                    background-color: red;
+                    background-color: ${completedColor};
                 }
-
-
-
             `}</style>
         </React.Fragment>
     );
