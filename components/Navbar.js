@@ -13,7 +13,8 @@ const Navbar = (props) => {
                     <DrawerToggleButton drawerToggleHandler={drawerToggleHandler} />
                 </div>
 
-                <Link href="/"><img className="logo" src="/clock.png" alt="logo" /></Link>
+
+                <img className="logo" src="/clock.png" alt="logo" />
                 <div className="logo-title">Pomodoro Timer</div>
 
                 <NavbarLink href="/" title="Focus" />
@@ -26,13 +27,20 @@ const Navbar = (props) => {
                 /* For Mobile */
                 .navbar {
                     display: flex;
-                    background-color: #630D0D;
+                    background-color: #141414;
                     align-items: center;
                     text-align: center;
+                    margin: 0.5rem;
+                }
+
+                .navbar .drawer-button {
+                    margin-left: 1rem;
                 }
 
                 .navbar .logo {
-                    height: 6rem;
+                    height: 4rem;
+                    margin-right: 1rem;
+                    margin-left: 10%;
                 }
 
                 .navbar .logo-title {
@@ -45,7 +53,8 @@ const Navbar = (props) => {
                     .navbar {
                         background-color: transparent;
                         justify-content: space-evenly;
-                        list-style-type: none;
+                        padding-top: 2rem;
+                        margin: 0.5rem 0;
                     }
 
                     .navbar .drawer-button,
@@ -54,7 +63,8 @@ const Navbar = (props) => {
                     }
 
                     .navbar .logo {
-                        height: 10rem;
+                        height: 7rem;
+                        margin: 0;
                     }
                 }
             `}</style>

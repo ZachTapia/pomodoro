@@ -18,33 +18,46 @@ const Layout = (props) => {
     // let topDrawer = drawerOpen ? <TopDrawer backdropClickHandler={backdropClickHandler} /> : null;
 
     return (
-        <div className="MainLayout">
+        <div className="main-layout">
             <TopDrawer show={drawerOpen} backdropClickHandler={backdropClickHandler} />
             <Navbar drawerToggleHandler={drawerToggleHandler} />
-            <div className="Content">{props.children}</div>
-            <Footer />
+            <div className="main-layout__content">
+                {props.children}
+                <div className="footer--mobile">
+                    <Footer />
+                </div>
+            </div>
+
 
             <style jsx>{`
                 /*  For Mobile */
-                .MainLayout .Content {
-                        height: 80vh;
-                        width: 90vw;
-                        margin: 2vh 5vw;
-                        background: red;
+                .main-layout .main-layout__content {
+                    position: relative;
+                    height: 75vh;
+                    width: 90vw;
+                    margin: 2vh 5vw;
+                    background-color: #2e2e2e;
+                    border-radius: 1rem;
+                    box-shadow: -1rem 1rem 10rem #000;
                 }
 
                 /* For Desktop */
                 @media only screen and (min-width: 900px) {
-                    .MainLayout {
+                    .main-layout {
                         width: 75%;
-                        margin: 1% 10%;
+                        margin: 1.5% auto;
+                        background-color: #2e2e2e;
+                        border-radius: 3rem;
+                        box-shadow: -1rem 1rem 10rem #000;
                     }
 
-                    .MainLayout .Content {
-                                height: 75vh;
-                                width: 55vw;
-                                margin: 0 12.5%;
-                                background: red;
+                    .main-layout .main-layout__content {
+                        height: 82vh;
+                        width: 55vw;
+                        margin: 0 12.5%;
+                        background-color: transparent;
+                        border-radius: 0;
+                        box-shadow: 0 0 0 0;
                     }
                 }
             `}</style>

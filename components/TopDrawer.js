@@ -4,23 +4,31 @@ import Link from 'next/link';
 const TopDrawer = (props) => {
     let { backdropClickHandler, show } = props;
 
-    let drawerClasses = show ? "TopDrawer Open" : "TopDrawer";
-    let backdropClass = show ? "Backdrop" : "";
+    let drawerClasses = show ? "top-drawer top-drawer--open" : "top-drawer";
+    let backdropClass = show ? "backdrop" : "";
 
     return (
         <div>
             <nav className={drawerClasses}>
-                <ul className="TopDrawerItems">
-                    <li><Link href="/"><a>Focus</a></Link></li>
-                    <li><Link href="/stats"><a>Stats</a></Link></li>
-                    <li><Link href="/settings"><a>Settings</a></Link></li>
-                    <li><Link href="/"><a>Login</a></Link></li>
+                <ul className="top-drawer__links-container">
+                    <li className="top-drawer__link">
+                        <Link href="/"><a>Focus</a></Link>
+                    </li>
+                    <li className="top-drawer__link">
+                        <Link href="/stats"><a>Stats</a></Link>
+                    </li>
+                    <li className="top-drawer__link">
+                        <Link href="/settings"><a>Settings</a></Link>
+                    </li>
+                    <li className="top-drawer__link">
+                        <Link href="/"><a>Login</a></Link>
+                    </li>
                 </ul>
             </nav>
             <div className={backdropClass} onClick={backdropClickHandler}></div>
 
             <style jsx>{`
-                .TopDrawer {
+                .top-drawer {
                     position: fixed;
                     background: white;
                     box-shadow: 2px 0 5px rgba(0,0,0,0.5);
@@ -32,24 +40,36 @@ const TopDrawer = (props) => {
                     transition: transform 0.4s ease-in;
                 }
 
-                .TopDrawer.Open {
+                .top-drawer--open {
                     transform: translateY(0);
                 }
 
-                .TopDrawer .TopDrawerItems {
+                .top-drawer__links-container {
                     list-style-type: none;
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                 }
 
-                .TopDrawer .TopDrawerItems a {
-                    padding-left: 1rem;
+                .top-drawer__link {
+                    font-size: 3rem;
+                    margin: 1.5rem 0;
+                }
+
+                .top-drawer__link:not(:last-child)::after {
+                    content: '';
+                    display: block;
+                    width: 80%;
+                    height: 1rem;
+                    color: #999;
+                }
+
+                a {
                     color: black;
                     text-decoration: none;
-                    font-size: 2.5rem;
                 }
 
-                .Backdrop {
+                .backdrop {
                     position: fixed;
                     width: 100%;
                     height: 100%;

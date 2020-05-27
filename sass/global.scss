@@ -1,7 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;600;800&display=swap);
-
-$primary-focus-color: #F76C6C;
-$secondary-focus-color: #630D0D;
+@import url(https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Ubuntu+Mono&display=swap);
 
 html {
     //This defines what 1 rem is, accomodates user
@@ -11,10 +8,10 @@ html {
 body {
     /* Changes the box-model so that the borders and paddings are no
     longer added to total width / height we specify for a box */
+    font-family: 'Ubuntu Mono', monospace;
     box-sizing: border-box;
-    font-family: 'Baloo Bhaina 2', cursive;
-    background-color: $primary-focus-color;
     color: #F2F2F2;
+    background-image: url("../public/folk-pattern-black.png")
 }
 
 *,
