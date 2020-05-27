@@ -18,8 +18,8 @@ const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
                 .progress-bar {
                     display: flex;
                     margin: 0 2rem;
-                    height: 3rem;
-                    width: 20rem;
+                    height: 3vh;
+                    width: 50vw;
                 }
 
                 .progress-bar__section {
@@ -46,6 +46,14 @@ const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
                 .progress-bar__section--completed {
                     background-color: ${completedColor};
                 }
+
+                /* For Desktop */
+                @media only screen and (min-width: 900px) {
+                    .progress-bar {
+                        width: 15vw;
+                    }
+                }
+
             `}</style>
         </React.Fragment>
     );

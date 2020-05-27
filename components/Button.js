@@ -5,16 +5,17 @@ const Button = ({ buttonText, action }) => {
             <button className="button" onClick={action}>{buttonText}</button>
 
             <style jsx>{`
+
                 .button {
                     position: relative;
                     font-family: Ubuntu Mono;
                     background-color: transparent;
                     border: none;
                     color: #f2f2f2;
-                    font-size: 3rem;
+                    font-size: 7vw;
                     letter-spacing: 0.1rem;
                     cursor: pointer;
-                    margin: 2rem;
+                    margin: 0 3.5vw;
                     padding: 0.2rem;
                 }
 
@@ -46,6 +47,14 @@ const Button = ({ buttonText, action }) => {
                 .button:active::before, .button:active::after {
                     height: 3px;
                     transition: all ease-in 200ms;
+                }
+
+                 /* For Desktop */
+                 @media only screen and (min-width: 900px) {
+                    .button {
+                        font-size: 3rem;
+                        margin: 2rem;
+                    }
                 }
 
             `}</style>

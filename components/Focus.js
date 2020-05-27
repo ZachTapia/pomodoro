@@ -10,7 +10,7 @@ const Focus = () => {
 
     const [ currentCycle, setCurrentCycle ] = useState("pomodoro");
     const [ currentColor, setCurrentColor ] = useState("#800202");
-    const [ timerLength, setTimerLength ] = useState(1 * 4 * 1000);
+    const [ timerLength, setTimerLength ] = useState(25 * 60 * 1000);
     const [ completedCycles, setCompletedCycles ] = useState({ "pomodoro": 0, "shortBreak": 0, "longBreak": 0 });
 
     const setCurrentCycleHandler = (cycle) => {
@@ -19,12 +19,12 @@ const Focus = () => {
         switch (cycle) {
             case "pomodoro": {
                 setCurrentColor("#800202");
-                setTimerLength(1 * 4 * 1000);
+                setTimerLength(25 * 60 * 1000);
                 break;
             }
             case "shortBreak": {
                 setCurrentColor("#508312");
-                setTimerLength(1 * 3 * 1000);
+                setTimerLength(5 * 60 * 1000);
                 break;
             }
             case "longBreak": {
@@ -69,7 +69,7 @@ const Focus = () => {
 
     return (
         <div className="focus">
-            <div className="focus-controls">
+            <div className="focus__controls">
                 <FocusControlButton activeSection={currentCycle} setCurrentCycleHandler={setCurrentCycleHandler} />
             </div>
             <Timer
@@ -98,38 +98,69 @@ const Focus = () => {
                 )}
             </Timer>
 
-            <FocusDetails completedCycles={completedCycles} />
+            <div className="focus__details">
+                <FocusDetails completedCycles={completedCycles} />
+            </div>
 
             <style jsx>{`
+
                 .focus {
-                    padding: 10rem 0;
+                    padding: 2.5vh 0;
                 }
 
-                .focus-controls, .timer__controls {
+                .focus__controls, .timer__controls,  .focus__details {
                     display: flex;
-                    margin: 3rem auto;
+                    margin: 0 auto;
                     justify-content: center;
-                }
-
-                .focus-controls {
-                    margin-top: 0rem;
                 }
 
                 .timer-container {
                     background-color: #111;
                     border-radius: 1.5rem;
                     box-shadow: 0 0 10rem ${currentColor};
-                    width: 25vw;
-                    margin: 0 auto;
+                    width: 60vw;
+                    margin: 5vh auto;
                     text-align: center;
-                    vertical-align: middle;
                 }
 
                 .timer-container__timer {
                     font-family: 'Ubuntu Mono';
-                    font-size: 8vw;
+                    font-size: 20vw;
                     text-shadow: 0 0 3rem ${currentColor};
                     color: ${currentColor};
+                }
+
+                /* For Desktop */
+                @media only screen and (min-width: 900px) {
+                    .focus {
+                        padding: 5rem 0;
+                    }
+
+                    .focus__controls, .timer__controls,  .focus__details {
+                        display: flex;
+                        margin: 1.5rem auto;
+                        justify-content: center;
+                    }
+
+                    .focus__controls {
+                        margin-top: 0rem;
+                    }
+
+                    .timer-container {
+                        background-color: #111;
+                        border-radius: 1.5rem;
+                        box-shadow: 0 0 10rem ${currentColor};
+                        width: 30vw;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+
+                    .timer-container__timer {
+                        font-family: 'Ubuntu Mono';
+                        font-size: 10vw;
+                        text-shadow: 0 0 3rem ${currentColor};
+                        color: ${currentColor};
+                    }
                 }
 
 

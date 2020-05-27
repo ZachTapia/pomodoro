@@ -11,11 +11,21 @@ const FocusControlButton = ({ activeSection, setCurrentCycleHandler }) => {
             </div>
 
             <style jsx>{`
+
                 .focus-control-button {
                     display: flex;
-                    font-size: 3rem;
-                    padding: 1rem;
+                    font-size: 4vw;
                     cursor: pointer;
+                }
+
+                /* For Desktop */
+                @media only screen and (min-width: 900px) {
+                    .focus-control-button {
+                        display: flex;
+                        font-size: 3rem;
+                        padding: 1rem;
+                        cursor: pointer;
+                    }
                 }
             `}</style>
         </React.Fragment>

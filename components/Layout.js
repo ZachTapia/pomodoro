@@ -33,9 +33,9 @@ const Layout = (props) => {
                 /*  For Mobile */
                 .main-layout .main-layout__content {
                     position: relative;
-                    height: 88vh;
+                    height: 75vh;
                     width: 90vw;
-                    margin: 0 5vw;
+                    margin: 2vh 5vw;
                     background-color: #2e2e2e;
                     border-radius: 1rem;
                     box-shadow: -1rem 1rem 10rem #000;
