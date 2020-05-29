@@ -1,30 +1,35 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
 const Footer = () => {
     return (
         <div className="footer">
-            <div className="socials">
-                <img className="socials__logo" src="/linkedin.png" alt="linkedin_link" />
-                <img className="socials__logo" src="/github.png" alt="linkedin_link" />
+            <div className="footer__socials">
+                <div className="footer__socials__element">
+                    <FontAwesomeIcon icon={faGithub} size="4x" />
+                </div>
+                <div className="footer__socials__element">
+                    <FontAwesomeIcon icon={faLinkedinIn} size="4x" />
+                </div>
             </div>
 
             <style jsx>{`
-                /* For Mobile */
                 .footer {
-                    display: flex;
-                    justify-content: center;
                     position: absolute;
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    margin: 0 auto 1rem;
                 }
 
-                .socials .socials__logo{
-                    width: 3.5rem;
+                .footer__socials {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 1vh;
+                }
+
+                .footer__socials__element {
                     margin: 0 1rem;
                 }
-
-                /* For Desktop*/
-
             `}</style>
         </div>
     );

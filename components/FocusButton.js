@@ -1,4 +1,4 @@
-const Button = ({ buttonText, action }) => {
+const FocusButton = ({ buttonText, action }) => {
 
     return (
         <React.Fragment>
@@ -62,4 +62,4 @@ const Button = ({ buttonText, action }) => {
     );
 };
 
-export default Button;
+export default FocusButton;

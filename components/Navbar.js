@@ -1,70 +1,57 @@
-import { useEffect } from 'react';
-import DrawerToggleButton from './DrawerToggleButton';
-import Link from 'next/link';
-import NavbarLink from './NavbarLink';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faCog, faPalette } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = (props) => {
-    let { drawerToggleHandler } = props;
+const Navbar = ({ openChangeHandler, settingsOpen, colorsOpen }) => {
 
     return (
         <header>
             <nav className="navbar">
-                <div className="drawer-button">
-                    <DrawerToggleButton drawerToggleHandler={drawerToggleHandler} />
+                <div className="navbar__logo">
+                    <FontAwesomeIcon icon={faClock} />
                 </div>
-
-
-                <img className="logo" src="/clock.png" alt="logo" />
-                <div className="logo-title">Pomodoro Timer</div>
-
-                <NavbarLink href="/" title="Focus" />
-                <NavbarLink href="/stats" title="Stats" />
-                <NavbarLink href="/settings" title="Settings" />
-                <NavbarLink href="" title="Login" />
+                <div className="navbar__title">PomoDo-It</div>
+                <div className={settingsOpen ? "navbar__settings navbar__settings--open" : "navbar__settings"} onClick={() => openChangeHandler("settings")} >
+                    <FontAwesomeIcon icon={faCog} />
+                </div>
+                <div className={colorsOpen ? "navbar__colors navbar__colors--open" : "navbar__colors"} onClick={() => openChangeHandler("colors")}>
+                    <FontAwesomeIcon icon={faPalette} />
+                </div>
             </nav>
 
             <style jsx>{`
                 /* For Mobile */
                 .navbar {
                     display: flex;
+                    justify-content: start;
                     background-color: #141414;
-                    align-items: center;
-                    text-align: center;
-                    margin: 0.5rem;
+                    margin-top: 1vh;
+                    padding: 1vh 5vw;
+                    font-size: 7vw;
                 }
 
-                .navbar .drawer-button {
-                    margin-left: 1rem;
+                .navbar__title, .navbar__colors {
+                    margin-left: 2vw;
                 }
 
-                .navbar .logo {
-                    height: 4rem;
-                    margin-right: 1rem;
-                    margin-left: 10%;
+                .navbar__settings {
+                    margin-left: auto;
                 }
 
-                .navbar .logo-title {
-                    font-size: 2.5rem;
-                    padding: 1rem 0 0.5rem 0;
+                .navbar__settings:hover, .navbar__colors:hover {
+                    transform: rotate(45deg);
+                    transition: all ease-in 200ms;
+                }
+
+                .navbar__settings--open, .navbar__colors--open {
+                  color: #000000;
                 }
 
                 /* For Desktop */
                 @media only screen and (min-width: 900px) {
                     .navbar {
                         background-color: transparent;
-                        justify-content: space-evenly;
-                        padding-top: 2rem;
-                        margin: 0.5rem 0;
-                    }
-
-                    .navbar .drawer-button,
-                    .navbar .logo-title {
-                        display: none;
-                    }
-
-                    .navbar .logo {
-                        height: 7rem;
-                        margin: 0;
+                        font-size: 3vw;
+                        padding-top: 3vh;
                     }
                 }
             `}</style>

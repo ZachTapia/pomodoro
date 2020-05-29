@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import Timer from 'react-compound-timer';
 import FocusControlButton from './FocusControlButton';
-import Button from './Button';
+import FocusButton from './FocusButton';
 import FocusDetails from './FocusDetails';
 
 const Focus = () => {
 
+    // Grab reference to Timer for access to functions
     const timer = useRef();
 
     const [ currentCycle, setCurrentCycle ] = useState("pomodoro");
@@ -90,9 +91,9 @@ const Focus = () => {
                             </div>
                         </div>
                         <div className="timer__controls">
-                            <Button buttonText="START" action={start} />
-                            <Button buttonText="PAUSE" action={pause} />
-                            <Button buttonText="RESET" action={reset} />
+                            <FocusButton buttonText="START" action={start} />
+                            <FocusButton buttonText="PAUSE" action={pause} />
+                            <FocusButton buttonText="RESET" action={reset} />
                         </div>
                     </React.Fragment>
                 )}
