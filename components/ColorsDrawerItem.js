@@ -13,6 +13,7 @@ const ColorsDrawerItem = ({ title, rowOneColor, rowTwoColor, rowThreeColor }) =>
                 .colors-drawer__item {
                     display: flex;
                     align-items: center;
+                    cursor: pointer;
                 }
 
                 .colors-drawer__item__preview-block {

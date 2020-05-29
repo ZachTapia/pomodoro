@@ -5,24 +5,25 @@ import ColorsDrawer from './ColorsDrawer';
 
 const Layout = ({ children }) => {
 
-    const [ settingsOpen, setSettingsOpen ] = useState(false);
-    const [ colorsOpen, setColorsOpen ] = useState(false);
+    const [ settingsDrawerOpen, setSettingsDrawerOpen ] = useState(false);
+    const [ colorsDrawerOpen, setColorsDrawerOpen ] = useState(false);
+    const [ currentColors, setCurrentColors ] = useState([ "#fff", "#fff", "#fff" ]);
 
     const openChangeHandler = (buttonClicked) => {
         if (buttonClicked == "settings") {
-            setSettingsOpen(prevState => !prevState);
-            setColorsOpen(false);
+            setSettingsDrawerOpen(prevState => !prevState);
+            setColorsDrawerOpen(false);
         } else if (buttonClicked == "colors") {
-            setColorsOpen(prevState => !prevState);
-            setSettingsOpen(false);
+            setColorsDrawerOpen(prevState => !prevState);
+            setSettingsDrawerOpen(false);
         }
     };
 
     return (
         <React.Fragment>
-            <ColorsDrawer />
-            <div className="main-layout">
-                <Navbar openChangeHandler={openChangeHandler} settingsOpen={settingsOpen} colorsOpen={colorsOpen} />
+            <ColorsDrawer colorsDrawerOpen={colorsDrawerOpen} />
+            <div className={colorsDrawerOpen ? "main-layout main-layout--down" : "main-layout"}>
+                <Navbar openChangeHandler={openChangeHandler} settingsDrawerOpen={settingsDrawerOpen} colorsDrawerOpen={colorsDrawerOpen} />
                 <div className="main-layout__content">
                     {children}
                     <Footer />
@@ -49,16 +50,23 @@ const Layout = ({ children }) => {
                         background-color: #2e2e2e;
                         border-radius: 3rem;
                         box-shadow: -1rem 1rem 10rem #000;
+                        transform: translateY(-10%);
+                        transition: all ease-out 400ms;
                     }
 
+                    .main-layout--down {
+                        transform: translateY(0%);
+                        transition: all ease-in 400ms;
+                    }
                     .main-layout__content {
-                        height: 82vh;
+                        height: 75vh;
                         width: 55vw;
                         margin: 0 12.5%;
                         background-color: transparent;
                         border-radius: 0;
                         box-shadow: 0 0 0 0;
                     }
+
                 }
             `}</style>
             </div>
