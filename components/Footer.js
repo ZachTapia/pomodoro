@@ -6,14 +6,24 @@ const Footer = ({ currentColors }) => {
         <div className="footer">
             <div className="footer__socials">
                 <div className="footer__socials__element">
-                    <FontAwesomeIcon icon={faGithub} size="4x" />
+                    <a href="https://github.com/ZachTapia/pomodoro" target="_blank">
+                        <FontAwesomeIcon icon={faGithub} size="4x" />
+                    </a>
                 </div>
                 <div className="footer__socials__element">
-                    <FontAwesomeIcon icon={faLinkedinIn} size="4x" />
+                    <a href="https://www.linkedin.com/in/zach-tapia-a01ab918b/" target="_blank">
+                        <FontAwesomeIcon icon={faLinkedinIn} size="4x" />
+                    </a>
                 </div>
             </div>
 
             <style jsx>{`
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
                 .footer {
                     position: absolute;
                     bottom: 0;
@@ -25,7 +35,7 @@ const Footer = ({ currentColors }) => {
                     display: flex;
                     justify-content: center;
                     margin-bottom: 1vh;
-                    color: ${currentColors[ 2 ]}
+                    color: ${currentColors[ 2 ]};
                 }
 
                 .footer__socials__element {
