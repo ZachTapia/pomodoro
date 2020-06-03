@@ -1,31 +1,38 @@
-const FocusControlButtonSection = ({ sectionTitle, sectionId, activeSection, setCurrentCycleHandler }) => {
+const FocusControlButtonSection = ({ sectionTitle, sectionId, activeSection, setCurrentCycleHandler, currentColors }) => {
     let buttonClasses = "focus-control-button__section";
     let myColor = "";
 
     activeSection == sectionId ? buttonClasses += " focus-control-button__section--active" : null;
 
-    switch (sectionId) {
-        case "pomodoro": {
-            myColor = "#800202";
-            break;
+    // Only apply tricolor scheme if user is using default colors
+    if (currentColors[ 0 ] == "#111") {
+        switch (sectionId) {
+            case "pomodoro": {
+                myColor = "#800202";
+                break;
+            }
+            case "shortBreak": {
+                myColor = "#508312";
+                break;
+            }
+            case "longBreak": {
+                myColor = "#125083";
+                break;
+            }
         }
-        case "shortBreak": {
-            myColor = "#508312";
-            break;
-        }
-        case "longBreak": {
-            myColor = "#125083";
-            break;
-        }
+    } else {
+        myColor = currentColors[ 0 ];
     }
+
     return (
         <React.Fragment>
             <div className={buttonClasses} onClick={() => setCurrentCycleHandler(sectionId)}>{sectionTitle}</div>
 
             <style jsx>{`
                 .focus-control-button__section {
-                    border: 0.2rem solid #fff;
+                    border: 0.2rem solid ${currentColors[ 2 ]};
                     padding: 1rem;
+                    color: ${currentColors[ 2 ]}
                 }
 
                 .focus-control-button__section:hover {

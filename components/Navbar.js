@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faCog, faPalette } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = ({ openChangeHandler, settingsOpen, colorsOpen }) => {
+const Navbar = ({ openChangeHandler, settingsOpen, colorsOpen, currentColors }) => {
 
     return (
         <header>
@@ -23,7 +23,8 @@ const Navbar = ({ openChangeHandler, settingsOpen, colorsOpen }) => {
                 .navbar {
                     display: flex;
                     justify-content: start;
-                    background-color: #141414;
+                    background-color: ${currentColors[ 0 ]};
+                    color: ${currentColors[ 2 ]};
                     margin-top: 1vh;
                     padding: 1vh 5vw;
                     font-size: 7vw;

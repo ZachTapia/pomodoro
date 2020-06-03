@@ -4,7 +4,7 @@ import FocusControlButton from './FocusControlButton';
 import FocusButton from './FocusButton';
 import FocusDetails from './FocusDetails';
 
-const Focus = () => {
+const Focus = ({ currentColors }) => {
 
     // Grab reference to Timer for access to functions
     const timer = useRef();
@@ -19,17 +19,17 @@ const Focus = () => {
 
         switch (cycle) {
             case "pomodoro": {
-                setCurrentColor("#800202");
+                currentColors[ 0 ] == "#111" ? setCurrentColor("#800202") : setCurrentColor(currentColors[ 2 ]);
                 setTimerLength(25 * 60 * 1000);
                 break;
             }
             case "shortBreak": {
-                setCurrentColor("#508312");
+                currentColors[ 0 ] == "#111" ? setCurrentColor("#508312") : setCurrentColor(currentColors[ 2 ]);
                 setTimerLength(5 * 60 * 1000);
                 break;
             }
             case "longBreak": {
-                setCurrentColor("#125083");
+                currentColors[ 0 ] == "#111" ? setCurrentColor("#125083") : setCurrentColor(currentColors[ 2 ]);
                 setTimerLength(25 * 60 * 1000);
                 break;
             }
@@ -68,10 +68,15 @@ const Focus = () => {
 
     }, [ completedCycles.pomodoro ]);
 
+    // Updates timer color when alternating themes
+    useEffect(() => {
+        setCurrentCycleHandler(currentCycle);
+    }, [ currentColors ]);
+
     return (
         <div className="focus">
             <div className="focus__controls">
-                <FocusControlButton activeSection={currentCycle} setCurrentCycleHandler={setCurrentCycleHandler} />
+                <FocusControlButton activeSection={currentCycle} setCurrentCycleHandler={setCurrentCycleHandler} currentColors={currentColors} />
             </div>
             <Timer
                 ref={timer}
@@ -91,20 +96,19 @@ const Focus = () => {
                             </div>
                         </div>
                         <div className="timer__controls">
-                            <FocusButton buttonText="START" action={start} />
-                            <FocusButton buttonText="PAUSE" action={pause} />
-                            <FocusButton buttonText="RESET" action={reset} />
+                            <FocusButton buttonText="START" action={start} currentColors={currentColors} />
+                            <FocusButton buttonText="PAUSE" action={pause} currentColors={currentColors} />
+                            <FocusButton buttonText="RESET" action={reset} currentColors={currentColors} />
                         </div>
                     </React.Fragment>
                 )}
             </Timer>
 
             <div className="focus__details">
-                <FocusDetails completedCycles={completedCycles} />
+                <FocusDetails completedCycles={completedCycles} currentColors={currentColors} />
             </div>
 
             <style jsx>{`
-
                 .focus {
                     padding: 2.5vh 0;
                 }
@@ -116,7 +120,7 @@ const Focus = () => {
                 }
 
                 .timer-container {
-                    background-color: #111;
+                    background-color: ${currentColors[ 0 ]};
                     border-radius: 1.5rem;
                     box-shadow: 0 0 10rem ${currentColor};
                     width: 60vw;
@@ -148,7 +152,6 @@ const Focus = () => {
                     }
 
                     .timer-container {
-                        background-color: #111;
                         border-radius: 1.5rem;
                         box-shadow: 0 0 10rem ${currentColor};
                         width: 30vw;

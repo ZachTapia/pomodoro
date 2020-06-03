@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-const Footer = () => {
+const Footer = ({ currentColors }) => {
     return (
         <div className="footer">
             <div className="footer__socials">
@@ -25,6 +25,7 @@ const Footer = () => {
                     display: flex;
                     justify-content: center;
                     margin-bottom: 1vh;
+                    color: ${currentColors[ 2 ]}
                 }
 
                 .footer__socials__element {

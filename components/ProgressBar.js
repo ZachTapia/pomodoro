@@ -1,4 +1,4 @@
-const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
+const ProgressBar = ({ totalSections, completedSections, completedColor, currentColors }) => {
 
     const sectionWidth = (100 / totalSections) + '%';
 
@@ -25,7 +25,7 @@ const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
                 .progress-bar__section {
                     height: 100%;
                     width: ${sectionWidth};
-                    border: 0.3rem solid #f2f2f2;
+                    border: 0.3rem solid ${currentColors[ 2 ]};
                 }
 
                 .progress-bar__section:not(:first-child):not(:last-child) {
@@ -44,7 +44,8 @@ const ProgressBar = ({ totalSections, completedSections, completedColor }) => {
                 }
 
                 .progress-bar__section--completed {
-                    background-color: ${completedColor};
+                    /* Only use tricolor theming if user has default theme on */
+                    background-color: ${currentColors[ 0 ] == "#111" ? completedColor : currentColors[ 0 ]};
                 }
 
                 /* For Desktop */

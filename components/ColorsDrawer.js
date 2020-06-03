@@ -1,14 +1,14 @@
 import ColorsDrawerItem from './ColorsDrawerItem';
 
-const ColorsDrawer = ({ colorsDrawerOpen }) => {
+const ColorsDrawer = ({ colorsDrawerOpen, colorChangeHandler }) => {
     return (
         <React.Fragment>
             <div className={colorsDrawerOpen ? "colors-drawer colors-drawer--open" : "colors-drawer"}>
-                <ColorsDrawerItem title="Default" rowOneColor="#111" rowTwoColor="#2e2e2e" rowThreeColor="#e2e2e2" />
-                <ColorsDrawerItem title="Beach" rowOneColor="#3da4ab" rowTwoColor="#f6cd61" rowThreeColor="#fe8a71" />
-                <ColorsDrawerItem title="Deep" rowOneColor="#142850" rowTwoColor="#27496d" rowThreeColor="#00909e" />
-                <ColorsDrawerItem title="Mint" rowOneColor="#473a34" rowTwoColor="#998272" rowThreeColor="#bef798" />
-                <ColorsDrawerItem title="Magma" rowOneColor="#6f0000" rowTwoColor="#ff5200" rowThreeColor="#ffcd3c" />
+                <ColorsDrawerItem title="Default" rowOneColor="#111" rowTwoColor="#2e2e2e" rowThreeColor="#e2e2e2" colorChangeHandler={colorChangeHandler} />
+                <ColorsDrawerItem title="Beach" rowOneColor="#27496d" rowTwoColor="#f6cd61" rowThreeColor="#fe8a71" colorChangeHandler={colorChangeHandler} />
+                <ColorsDrawerItem title="Deep" rowOneColor="#142850" rowTwoColor="#27496d" rowThreeColor="#34ebab" colorChangeHandler={colorChangeHandler} />
+                <ColorsDrawerItem title="Mint" rowOneColor="#473a34" rowTwoColor="#998272" rowThreeColor="#bef798" colorChangeHandler={colorChangeHandler} />
+                <ColorsDrawerItem title="Magma" rowOneColor="#6f0000" rowTwoColor="#ff5200" rowThreeColor="#ffcd3c" colorChangeHandler={colorChangeHandler} />
             </div>
             <style jsx>{`
                 .colors-drawer {
@@ -29,6 +29,7 @@ const ColorsDrawer = ({ colorsDrawerOpen }) => {
                     transform: translateY(0);
                     transition: all ease-in 400ms;
                 }
+
             `}</style>
         </React.Fragment>
     );
