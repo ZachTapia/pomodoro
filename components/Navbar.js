@@ -23,7 +23,7 @@ const Navbar = ({ openChangeHandler, settingsOpen, colorsOpen, currentColors }) 
                 .navbar {
                     display: flex;
                     justify-content: start;
-                    background-color: ${currentColors[ 0 ]};
+                    background-color: ${currentColors[ 0 ] == "#111" ? currentColors[ 0 ] : currentColors[ 1 ]};
                     color: ${currentColors[ 2 ]};
                     margin-top: 1vh;
                     padding: 1vh 5vw;

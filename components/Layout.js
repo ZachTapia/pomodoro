@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
                         height: 75vh;
                         width: 90vw;
                         margin: 2vh 5vw;
-                        background-color: ${currentColors[ 0 ]};
+                        background-color: ${currentColors[ 1 ]};
                         border-radius: 1rem;
                         box-shadow: -1rem 1rem 10rem #000;
                     }
