@@ -1,67 +1,112 @@
 import { useState } from 'react';
 import Navbar from './Navbar';
-import TopDrawer from './TopDrawer';
-
 import Footer from './Footer';
+import ColorsDrawer from './ColorsDrawer';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
 
-    const [ drawerOpen, setDrawerOpen ] = useState(false);
+    const [ settingsDrawerOpen, setSettingsDrawerOpen ] = useState(false);
+    const [ colorsDrawerOpen, setColorsDrawerOpen ] = useState(false);
+    const [ currentColors, setCurrentColors ] = useState([ "#111", "#2e2e2e", "#e2e2e2" ]);
 
-    const drawerToggleHandler = () => {
-        setDrawerOpen(prevState => setDrawerOpen(!prevState.drawerOpen));
+    const openChangeHandler = (buttonClicked) => {
+        if (buttonClicked == "settings") {
+            setSettingsDrawerOpen(prevState => !prevState);
+            setColorsDrawerOpen(false);
+        } else if (buttonClicked == "colors") {
+            setColorsDrawerOpen(prevState => !prevState);
+            setSettingsDrawerOpen(false);
+        }
     };
-    const backdropClickHandler = () => {
-        setDrawerOpen(false);
-    };
 
-    // let topDrawer = drawerOpen ? <TopDrawer backdropClickHandler={backdropClickHandler} /> : null;
+    const colorChangeHandler = (colorTheme) => {
+        switch (colorTheme) {
+            case "Default": {
+                setCurrentColors([ "#111", "#2e2e2e", "#e2e2e2" ]);
+                break;
+            }
+            case "Beach": {
+                setCurrentColors([ "#fe8a71", "#f6cd61", "#27496d" ]);
+                break;
+            }
+            case "Deep": {
+                setCurrentColors([ "#142850", "#27496d", "#34ebab" ]);
+                break;
+            }
+            case "Mint": {
+                setCurrentColors([ "#473a34", "#998272", "#bef798" ]);
+                break;
+            }
+            case "Magma": {
+                setCurrentColors([ "#6f0000", "#ff5200", "#ffcd3c" ]);
+                break;
+            }
+        }
+    };
 
     return (
-        <div className="main-layout">
-            <TopDrawer show={drawerOpen} backdropClickHandler={backdropClickHandler} />
-            <Navbar drawerToggleHandler={drawerToggleHandler} />
-            <div className="main-layout__content">
-                {props.children}
-                <div className="footer--mobile">
-                    <Footer />
+        <React.Fragment>
+            <ColorsDrawer colorsDrawerOpen={colorsDrawerOpen} colorChangeHandler={colorChangeHandler} />
+            <div className={colorsDrawerOpen ? "main-layout main-layout--down" : "main-layout"}>
+                <Navbar openChangeHandler={openChangeHandler} settingsDrawerOpen={settingsDrawerOpen} colorsDrawerOpen={colorsDrawerOpen} currentColors={currentColors} />
+                <div className="main-layout__content">
+                    {React.cloneElement(children, { currentColors: currentColors })}
+                    <Footer currentColors={currentColors} />
                 </div>
-            </div>
 
 
-            <style jsx>{`
-                /*  For Mobile */
-                .main-layout .main-layout__content {
-                    position: relative;
-                    height: 75vh;
-                    width: 90vw;
-                    margin: 2vh 5vw;
-                    background-color: #2e2e2e;
-                    border-radius: 1rem;
-                    box-shadow: -1rem 1rem 10rem #000;
-                }
+                <style jsx>{`
+                    /*  For Mobile */
+                    .main-layout {
+                        transform: translateY(-10%);
+                        transition: all ease-out 400ms;
+                    }
+
+                    .main-layout--down {
+                        transform: translateY(0%);
+                        transition: all ease-in 400ms;
+                    }
+
+                    .main-layout__content {
+                        position: relative;
+                        height: 75vh;
+                        width: 90vw;
+                        margin: 2vh 5vw;
+                        background-color: ${currentColors[ 0 ]};
+                        border-radius: 1rem;
+                        box-shadow: -1rem 1rem 10rem #000;
+                    }
 
                 /* For Desktop */
                 @media only screen and (min-width: 900px) {
                     .main-layout {
                         width: 75%;
                         margin: 1.5% auto;
-                        background-color: #2e2e2e;
+                        background-color: ${currentColors[ 1 ]};
                         border-radius: 3rem;
                         box-shadow: -1rem 1rem 10rem #000;
+                        transform: translateY(-10%);
+                        transition: all ease-out 400ms;
                     }
 
-                    .main-layout .main-layout__content {
-                        height: 82vh;
+                    .main-layout--down {
+                        transform: translateY(0%);
+                        transition: all ease-in 400ms;
+                    }
+                    .main-layout__content {
+                        height: 75vh;
                         width: 55vw;
                         margin: 0 12.5%;
                         background-color: transparent;
                         border-radius: 0;
                         box-shadow: 0 0 0 0;
                     }
+
                 }
             `}</style>
-        </div>
+            </div>
+        </React.Fragment>
+
     );
 };
 

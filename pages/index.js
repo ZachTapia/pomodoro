@@ -6,13 +6,14 @@ import Focus from '../components/Focus';
 
 const Index = () => {
 	return (
-		<Layout>
+		<React.Fragment>
 			<Head>
 				<title>Pomodoro Timer</title>
 			</Head>
-			<Focus />
-		</Layout>
-
+			<Layout>
+				<Focus />
+			</Layout>
+		</React.Fragment>
 	);
 };
 

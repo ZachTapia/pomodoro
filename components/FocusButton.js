@@ -1,4 +1,4 @@
-const Button = ({ buttonText, action }) => {
+const FocusButton = ({ buttonText, action, currentColors }) => {
 
     return (
         <React.Fragment>
@@ -11,7 +11,7 @@ const Button = ({ buttonText, action }) => {
                     font-family: Ubuntu Mono;
                     background-color: transparent;
                     border: none;
-                    color: #f2f2f2;
+                    color: ${currentColors[ 2 ]};
                     font-size: 7vw;
                     letter-spacing: 0.1rem;
                     cursor: pointer;
@@ -28,7 +28,7 @@ const Button = ({ buttonText, action }) => {
                     display: block;
                     content: '';
                     position: absolute;
-                    background-color: #f2f2f2;
+                    background-color: ${currentColors[ 2 ]};
                     width: 100%;
                     height: 0px;
                 }
@@ -62,4 +62,4 @@ const Button = ({ buttonText, action }) => {
     );
 };
 
-export default Button;
+export default FocusButton;
