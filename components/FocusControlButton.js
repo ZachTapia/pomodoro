@@ -19,7 +19,7 @@ const FocusControlButton = ({ activeSection, setCurrentCycleHandler, currentColo
                 }
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .focus-control-button {
                         display: flex;
                         font-size: 3rem;

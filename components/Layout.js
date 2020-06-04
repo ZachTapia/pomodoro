@@ -2,20 +2,21 @@ import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ColorsDrawer from './ColorsDrawer';
+import InfoModal from './InfoModal';
 
 const Layout = ({ children }) => {
 
-    const [ settingsDrawerOpen, setSettingsDrawerOpen ] = useState(false);
+    const [ infoModalOpen, setInfoModalOpen ] = useState(false);
     const [ colorsDrawerOpen, setColorsDrawerOpen ] = useState(false);
     const [ currentColors, setCurrentColors ] = useState([ "#111", "#2e2e2e", "#e2e2e2" ]);
 
     const openChangeHandler = (buttonClicked) => {
-        if (buttonClicked == "settings") {
-            setSettingsDrawerOpen(prevState => !prevState);
+        if (buttonClicked == "info") {
+            setInfoModalOpen(prevState => !prevState);
             setColorsDrawerOpen(false);
         } else if (buttonClicked == "colors") {
             setColorsDrawerOpen(prevState => !prevState);
-            setSettingsDrawerOpen(false);
+            setInfoModalOpen(false);
         }
     };
 
@@ -48,8 +49,9 @@ const Layout = ({ children }) => {
         <React.Fragment>
             <ColorsDrawer colorsDrawerOpen={colorsDrawerOpen} colorChangeHandler={colorChangeHandler} />
             <div className={colorsDrawerOpen ? "main-layout main-layout--down" : "main-layout"}>
-                <Navbar openChangeHandler={openChangeHandler} settingsDrawerOpen={settingsDrawerOpen} colorsDrawerOpen={colorsDrawerOpen} currentColors={currentColors} />
+                <Navbar openChangeHandler={openChangeHandler} infoModalOpen={infoModalOpen} colorsDrawerOpen={colorsDrawerOpen} currentColors={currentColors} />
                 <div className="main-layout__content">
+                    <InfoModal openChangeHandler={openChangeHandler} infoModalOpen={infoModalOpen} />
                     {React.cloneElement(children, { currentColors: currentColors })}
                     <Footer currentColors={currentColors} />
                 </div>
@@ -78,7 +80,7 @@ const Layout = ({ children }) => {
                     }
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .main-layout {
                         width: 75%;
                         margin: 1.5% auto;

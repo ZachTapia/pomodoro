@@ -50,7 +50,7 @@ const FocusButton = ({ buttonText, action, currentColors }) => {
                 }
 
                  /* For Desktop */
-                 @media only screen and (min-width: 900px) {
+                 @media only screen and (min-width: 550px) {
                     .button {
                         font-size: 3rem;
                         margin: 2rem;
