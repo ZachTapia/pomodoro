@@ -136,7 +136,7 @@ const Focus = ({ currentColors }) => {
                 }
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .focus {
                         padding: 5rem 0;
                     }

@@ -48,7 +48,7 @@ const ColorsDrawerItem = ({ title, rowOneColor, rowTwoColor, rowThreeColor, colo
                 }
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .colors-drawer__item__title {
                         display: initial;
                     }

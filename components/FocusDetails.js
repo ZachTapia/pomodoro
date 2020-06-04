@@ -38,7 +38,7 @@ const FocusDetails = ({ completedCycles, currentColors }) => {
 
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .details {
                         display: flex;
                     }

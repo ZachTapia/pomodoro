@@ -49,7 +49,7 @@ const ProgressBar = ({ totalSections, completedSections, completedColor, current
                 }
 
                 /* For Desktop */
-                @media only screen and (min-width: 900px) {
+                @media only screen and (min-width: 550px) {
                     .progress-bar {
                         width: 15vw;
                     }
