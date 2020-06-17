@@ -2,7 +2,7 @@
 
 Live at: [https://pomodoit.now.sh/]()
 
-PomoDo-it is a productivity timer built using React.js (Hooks) and Next.js. PomoDo-it implements the [Pomodoro Technique](https://lifehacker.com/productivity-101-a-primer-to-the-pomodoro-technique-1598992730) to boost productivity and focus. When faced with a large task or series of tasks PomoDo-it breaks down the work into short focused sprints (called "pomodoros"). Small pauses occur in beteen pomdoros providing the user a break. This method trains the brain to effectively concentrate for a short interval which increases the user's consistency in achieving small tasks, while maintaing focus over a longer period of time. 
+PomoDo-it is a productivity timer built using React.js (Hooks) and Next.js. PomoDo-it implements the [Pomodoro Technique](https://lifehacker.com/productivity-101-a-primer-to-the-pomodoro-technique-1598992730) to boost productivity and focus. When faced with a large task or series of tasks, PomoDo-it breaks down the work into short focused sprints (called "pomodoros"). Small pauses occur in between pomodoros providing the user a break. This method trains the brain to effectively concentrate for a short interval which increases the user's consistency in achieving small tasks, while maintaining focus over a longer period.
 
 
 ## New Features!
@@ -12,9 +12,9 @@ PomoDo-it is a productivity timer built using React.js (Hooks) and Next.js. Pomo
 
 ## Built with:
 ![React Image](https://user-images.githubusercontent.com/31228341/84543583-7972a700-acb0-11ea-8ff3-9400fe8765f4.png) ![Nextjs Image](https://user-images.githubusercontent.com/31228341/84543916-277e5100-acb1-11ea-96e9-ed2b91173e42.png)
-- [React.js](https://reactjs.org), a JavaScript libray for building user interfaces.
+- [React.js](https://reactjs.org), a JavaScript library for building user interfaces.
     - Component based design - React allows you to compose complex UIs from small and isolated pieces of code called "components". Creating components that are designed to be reusable speeds up development time and overall lines of code. 
-    - VirtualDOM - React uses its own implementation of the Document Object Model (DOM) called the VirtualDOM. Having access to its own VirtualDOM allows React to quickly and effeciently make changes to the actual BrowserDOM, only changing what it deems necessary. Manipulation of the BrowserDOM is expensive, this extra layer of abstraction is what makes React standout as a high performance JavaScript library. 
+    - VirtualDOM - React uses its own implementation of the Document Object Model (DOM) called the VirtualDOM. Having access to its own VirtualDOM allows React to quickly and efficiently make changes to the actual BrowserDOM, only changing what it deems necessary. Manipulation of the BrowserDOM is expensive, this extra layer of abstraction is what makes React standout as a high performance JavaScript library. 
 
  
 - [Next.js](https://nextjs.org), a React framework known for many features, but most famously server-side rendering.
@@ -25,14 +25,14 @@ PomoDo-it is a productivity timer built using React.js (Hooks) and Next.js. Pomo
     
 ## What I Learned...
 
-Creating this application has taught me quiet a bit. A few worth mentioning: 
+Creating this application has taught me quite a bit. A few worth mentioning: 
 - How to design for both mobile and desktop views.
 - Creating flexible and adaptable components that can be reused throughout application.
-- How to incorporate a third party library for a problem that has already been solved.
+- How to incorporate a third-party library for a problem that has already been solved.
 - Staying motivated and completing a project from initial design, to deployment.
 
 ## Improvements
-Of course with everything we create, there is always room for improvement. These are some things I would like to incorporate into this project in future builds.
+Of course, with everything we create, there is always room for improvement. These are some things I would like to incorporate into this project in future builds.
 
-- Redux - There were situations in development where I felt state wasn't being treated in the most elegent way. The main example I have for this is managing the state of which color theme is currently selected. I feel there is a better way to implement this, possibly with a state management library such as Redux.
+- Redux - There were situations in development where I felt state wasn't being treated in the most elegant way. The main example I have for this is managing the state of which color theme is currently selected. I feel there is a better way to implement this, possibly with a state management library such as Redux.
 - Progressive Web App - I would like to turn this project into a progressive web so that a user would be able to save this application locally and access it without an internet connection.  
