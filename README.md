@@ -11,9 +11,11 @@ PomoDo-it is a productivity timer built using React.js (Hooks) and Next.js. Pomo
 - Theme selector, choose from 4 additional stylish themes!
 
 ## Built with:
-![React Image](https://user-images.githubusercontent.com/31228341/84543583-7972a700-acb0-11ea-8ff3-9400fe8765f4.png) ![Nextjs Image](https://user-images.githubusercontent.com/31228341/84543916-277e5100-acb1-11ea-96e9-ed2b91173e42.png)
+
+<img src="https://user-images.githubusercontent.com/31228341/84543583-7972a700-acb0-11ea-8ff3-9400fe8765f4.png" width="250" alt="React Logo" /><img src="https://user-images.githubusercontent.com/31228341/84543916-277e5100-acb1-11ea-96e9-ed2b91173e42.png" width="250" alt="Nextjs Logo" />
+
 - [React.js](https://reactjs.org), a JavaScript library for building user interfaces.
-    - Component based design - React allows you to compose complex UIs from small and isolated pieces of code called "components". Creating components that are designed to be reusable speeds up development time and overall lines of code. 
+    - Component based design - React allows you to compose complex UIs from small and isolated pieces of code called "components". Creating components that are designed to be reusable speeds up development time and reduces overall lines of code. 
     - VirtualDOM - React uses its own implementation of the Document Object Model (DOM) called the VirtualDOM. Having access to its own VirtualDOM allows React to quickly and efficiently make changes to the actual BrowserDOM, only changing what it deems necessary. Manipulation of the BrowserDOM is expensive, this extra layer of abstraction is what makes React standout as a high performance JavaScript library. 
 
  
